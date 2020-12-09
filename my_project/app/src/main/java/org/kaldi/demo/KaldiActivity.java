@@ -25,6 +25,7 @@ import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import android.os.StrictMode;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
@@ -78,6 +79,10 @@ public class KaldiActivity extends Activity implements
 
     @Override
     public void onCreate(Bundle state) {
+        // lines to bypass thread things with network (it's a bad method)
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
         super.onCreate(state);
         setContentView(R.layout.main);
 
@@ -160,7 +165,7 @@ public class KaldiActivity extends Activity implements
             System.out.println("Wake-on-LAN packet sent.");
         }
         catch (Exception e) {
-            System.out.println("Failed to send Wake-on-LAN packet: + e");
+            System.out.println("Failed to send Wake-on-LAN packet: " + e);
             System.exit(1);
         }
     }
