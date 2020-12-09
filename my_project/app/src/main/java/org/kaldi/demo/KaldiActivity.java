@@ -42,6 +42,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.ref.WeakReference;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -98,9 +99,10 @@ public class KaldiActivity extends Activity implements
         // Recognizer initialization is a time-consuming and it involves IO,
         // so we execute it in async task
         new SetupTask(this).execute();
-        setMacAdresses();
+        getMacAdresses();
     }
-    public void setMacAdresses() {
+    // recup all key and value => name of computer + MAC addresses
+    public String getMacAdresses() {
         SharedPreferences keyValues = getApplicationContext().getSharedPreferences("name_icons_list", Context.MODE_PRIVATE);
         Map <String, ?> macAddresses = keyValues.getAll();
         int i = 1;
@@ -110,8 +112,9 @@ public class KaldiActivity extends Activity implements
             i++;
         }
         Log.d(TAG, "" + listAddresses);
-        TextView textAddresses = findViewById(R.id.macAddresses);
-        textAddresses.setText(listAddresses);
+        /*TextView textAddresses = findViewById(R.id.macAddresses);
+        textAddresses.setText(listAddresses);*/
+        return (listAddresses);
     }
     public void test(){
         // my list of names, icon locations
@@ -237,28 +240,71 @@ public class KaldiActivity extends Activity implements
     }
 
 
+    public boolean isInString(String s, String [] arr) {
+        for (String s2: arr) {
+            if (s.contains(s2))
+                return true;
+        }
+        return false;
+    }
+
     @Override
     public void onResult(String hypothesis) {
         resultView.append(hypothesis + "\n");
+        Log.d(TAG, "onResult: " + hypothesis);
         if (hypothesis.contains("allumé") && menu == menuEnum.MAINMENU) {
             Log.d("onResult", "onResult: allumer ordinateur détecté" );
+            ((Button) findViewById(R.id.returnMenu)).setVisibility(View.VISIBLE);
+            menu = menuEnum.WAKE;
+            String text = getMacAdresses();
+            TextView textAddresses = findViewById(R.id.macAddresses);
+            textAddresses.setText(text);
         }
 
-        if (hypothesis.contains("éteindre") && menu == menuEnum.MAINMENU)
+        else if (hypothesis.contains("éteindre") && menu == menuEnum.MAINMENU)
             Log.d("onResult", "onResult: éteindre ordinateur détecté" );
-        if (hypothesis.contains("ajoute") && menu == menuEnum.MAINMENU)
+        else if (hypothesis.contains("ajoute") && menu == menuEnum.MAINMENU)
             Log.d("onResult", "onResult: ajouter ordinateur détecté" );
-        if (hypothesis.contains("supprimer") && menu == menuEnum.MAINMENU)
+        else if (hypothesis.contains("supprimer") && menu == menuEnum.MAINMENU)
             Log.d("onResult", "onResult: supprimer ordinateur détecté" );
-        if (hypothesis.contains("test")) {
+        else if (hypothesis.contains("test")) {
             Log.d("onResult", "onResult: test ordinateur détecté" );
             test();
         }
-        if (hypothesis.contains("retour") && menu != menuEnum.MAINMENU) {
+        else if (hypothesis.contains("retour") && menu != menuEnum.MAINMENU) {
             Log.d("onResult", "onResult: retour ordinateur détecté");
-            recognizeMicrophone();
+            //recognizeMicrophone();
             menu = menuEnum.MAINMENU;
+            ((Button) findViewById(R.id.returnMenu)).setVisibility(View.GONE);
+            TextView textAddresses = findViewById(R.id.macAddresses);
+            textAddresses.setText("");
         }
+        else if (menu == menuEnum.WAKE) {
+            int num;
+            Log.d(TAG, "onResult 42: " + hypothesis);
+            if (isInString(hypothesis, new String[]{"hein", "eau","eaux","en","un", "premier"}))
+                num = 1;
+            else if (isInString(hypothesis, new String[]{"deux", "deuxième"}))
+                num = 2;
+            else if (isInString(hypothesis, new String[]{"trois", "troisième"}))
+                num = 3;
+            else if (isInString(hypothesis, new String[]{"quatre", "quatrième"}))
+                num = 4;
+            else if (isInString(hypothesis, new String[]{"cinq", "cinquième"}))
+                num = 5;
+            else if (isInString(hypothesis, new String[]{"six", "sixième"}))
+                num = 6;
+            else if (isInString(hypothesis, new String[]{"sept", "septième"}))
+                num = 7;
+            else if (isInString(hypothesis, new String[]{"huit", "huitème", "huitièmement"}))
+                num = 8;
+            else if (isInString(hypothesis, new String[]{"neuf", "neuvième"}))
+                num = 9;
+            else
+                num = -1;
+            Log.d(TAG, "NULMEROOOO: " + num);
+        }
+
 
     }
 
