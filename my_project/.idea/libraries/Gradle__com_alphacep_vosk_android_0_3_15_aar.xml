@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.alphacep:vosk-android:0.3.15@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/be2d1abbc5b5259dec9e705856767c8e/vosk-android-0.3.15/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e2b988d20b390c36f4940e719d4ed547/jetified-vosk-android-0.3.15/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e2b988d20b390c36f4940e719d4ed547/jetified-vosk-android-0.3.15/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e2b988d20b390c36f4940e719d4ed547/jetified-vosk-android-0.3.15/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
