@@ -3,19 +3,21 @@ import sys
 import TPi.GPIO as GPIO
 import time
 
-GPIO.setmode(GPIO.BOARD)
-PINARDUINO = 17
+
+# BCM pin name from processor
+GPIO.setmode(GPIO.BCM)
+PINARDUINO = 21
 
 # Create a TCP/IP socket
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # Bind the socket to the port
-server_address = ('192.168.0.159', 7000)
+server_address = ('10.3.141.1', 7000)
 print('starting up on %s port %s' % server_address)
 sock.bind(server_address)
 
 
-# setup pin 17 as output 
+# setup pin 21 as output 
 GPIO.setup(PINARDUINO, GPIO.OUT)
 GPIO.output(PINARDUINO, 0)
 
