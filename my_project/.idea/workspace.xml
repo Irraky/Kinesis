@@ -19,7 +19,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[R58N65RH6ZE]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -35,6 +35,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Pixel_3a_API_30_x86" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-12-22T22:13:38.214Z" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -123,25 +125,25 @@
       <screen x="0" y="0" width="3000" height="2000" />
     </state>
     <state x="1282" y="699" width="426" height="506" key="FileChooserDialogImpl/0.0.3000.2000@0.0.3000.2000" timestamp="1605867624459" />
-    <state width="1672" height="237" key="GridCell.Tab.0.bottom" timestamp="1607523885584">
-      <screen x="0" y="0" width="3440" height="1400" />
+    <state width="990" height="210" key="GridCell.Tab.0.bottom" timestamp="1608679404688">
+      <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="1562" height="279" key="GridCell.Tab.0.bottom/0.0.1620.1040@0.0.1620.1040" timestamp="1607471519159" />
+    <state width="990" height="210" key="GridCell.Tab.0.bottom/0.0.1620.1040@0.0.1620.1040" timestamp="1608679404688" />
     <state width="1672" height="237" key="GridCell.Tab.0.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1607523885584" />
-    <state width="1672" height="237" key="GridCell.Tab.0.center" timestamp="1607523885584">
-      <screen x="0" y="0" width="3440" height="1400" />
+    <state width="990" height="210" key="GridCell.Tab.0.center" timestamp="1608679404688">
+      <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="1562" height="279" key="GridCell.Tab.0.center/0.0.1620.1040@0.0.1620.1040" timestamp="1607471519159" />
+    <state width="990" height="210" key="GridCell.Tab.0.center/0.0.1620.1040@0.0.1620.1040" timestamp="1608679404688" />
     <state width="1672" height="237" key="GridCell.Tab.0.center/0.0.3440.1400@0.0.3440.1400" timestamp="1607523885584" />
-    <state width="1672" height="237" key="GridCell.Tab.0.left" timestamp="1607523885583">
-      <screen x="0" y="0" width="3440" height="1400" />
+    <state width="990" height="210" key="GridCell.Tab.0.left" timestamp="1608679404688">
+      <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="1562" height="279" key="GridCell.Tab.0.left/0.0.1620.1040@0.0.1620.1040" timestamp="1607471519159" />
+    <state width="990" height="210" key="GridCell.Tab.0.left/0.0.1620.1040@0.0.1620.1040" timestamp="1608679404688" />
     <state width="1672" height="237" key="GridCell.Tab.0.left/0.0.3440.1400@0.0.3440.1400" timestamp="1607523885583" />
-    <state width="1672" height="237" key="GridCell.Tab.0.right" timestamp="1607523885584">
-      <screen x="0" y="0" width="3440" height="1400" />
+    <state width="990" height="210" key="GridCell.Tab.0.right" timestamp="1608679404688">
+      <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="1562" height="279" key="GridCell.Tab.0.right/0.0.1620.1040@0.0.1620.1040" timestamp="1607471519159" />
+    <state width="990" height="210" key="GridCell.Tab.0.right/0.0.1620.1040@0.0.1620.1040" timestamp="1608679404688" />
     <state width="1672" height="237" key="GridCell.Tab.0.right/0.0.3440.1400@0.0.3440.1400" timestamp="1607523885584" />
     <state x="660" y="320" width="672" height="678" key="search.everywhere.popup" timestamp="1607522853008">
       <screen x="0" y="0" width="3440" height="1400" />

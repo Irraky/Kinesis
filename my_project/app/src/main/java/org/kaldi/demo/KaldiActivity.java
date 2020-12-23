@@ -39,13 +39,21 @@ import org.kaldi.RecognitionListener;
 import org.kaldi.SpeechService;
 import org.kaldi.Vosk;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.DataOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.lang.ref.WeakReference;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -65,6 +73,10 @@ public class KaldiActivity extends Activity implements
         ADD,
         WAKE
     };
+
+    // port to send the packet
+    static final int port = 7000;
+
     // variable of menu enum
     menuEnum menu = menuEnum.MAINMENU;
 
@@ -143,48 +155,17 @@ public class KaldiActivity extends Activity implements
         Log.d("test", "test: " + truc);
     }
 
-    void wakeOnLan(String ipStr, String macStr) {
-        int PORT = 9;
+    void wake(String ipStr) throws Exception {
+        InetAddress serverAddr = InetAddress.getByName(ipStr);
+        Socket socket = new Socket(ipStr, port);
+        System.out.println("SOCKET = " + socket);
 
-        try {
-            byte[] macBytes = getMacBytes(macStr);
-            byte[] bytes = new byte[6 + 16 * macBytes.length];
-            for (int i = 0; i < 6; i++) {
-                bytes[i] = (byte) 0xff;
-            }
-            for (int i = 6; i < bytes.length; i += macBytes.length) {
-                System.arraycopy(macBytes, 0, bytes, i, macBytes.length);
-            }
+        String str = "wake";
+        OutputStream toServer = socket.getOutputStream();
+        DataOutputStream out = new DataOutputStream(toServer);
+        out.writeBytes("0" + str);
 
-            InetAddress address = InetAddress.getByName(ipStr);
-            DatagramPacket packet = new DatagramPacket(bytes, bytes.length, address, PORT);
-            DatagramSocket socket = new DatagramSocket();
-            socket.send(packet);
-            socket.close();
-
-            System.out.println("Wake-on-LAN packet sent.");
-        }
-        catch (Exception e) {
-            System.out.println("Failed to send Wake-on-LAN packet: " + e);
-            System.exit(1);
-        }
-    }
-
-    private static byte[] getMacBytes(String macStr) throws IllegalArgumentException {
-        byte[] bytes = new byte[6];
-        String[] hex = macStr.split("(\\:|\\-)");
-        if (hex.length != 6) {
-            throw new IllegalArgumentException("Invalid MAC address.");
-        }
-        try {
-            for (int i = 0; i < 6; i++) {
-                bytes[i] = (byte) Integer.parseInt(hex[i], 16);
-            }
-        }
-        catch (NumberFormatException e) {
-            throw new IllegalArgumentException("Invalid hex digit in MAC address.");
-        }
-        return bytes;
+        socket.close();
     }
 
     private static class SetupTask extends AsyncTask<Void, Void, Exception> {
@@ -356,7 +337,11 @@ public class KaldiActivity extends Activity implements
                 num = -1;
             Log.d(TAG, "NULMEROOOO: " + num);
             if (num == 1) {
-                wakeOnLan("192.168.0.134", "F0-1D-BC-A0-BC-86");
+                try {
+                    wake("10.3.141.1");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
 
