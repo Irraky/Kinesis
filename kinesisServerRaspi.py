@@ -19,7 +19,7 @@ sock.bind(server_address)
 
 # setup pin 21 as output 
 GPIO.setup(PINARDUINO, GPIO.OUT)
-GPIO.output(PINARDUINO, 0)
+GPIO.output(PINARDUINO, 1)
 
 # Listen for incoming connections
 sock.listen(1)
@@ -30,7 +30,7 @@ while True:
     connection, client_address = sock.accept()
     try:
         print('connection from', client_address)
-        GPIO.output(PINARDUINO, 1)
+        GPIO.output(PINARDUINO, 0)
         # Receive the data in small chunks and retransmit it
         while True:
             data = connection.recv(16)
@@ -42,7 +42,7 @@ while True:
                 print('no more data from', client_address)
                 break
         time.sleep(3)
-        GPIO.output(PINARDUINO, 0)
+        GPIO.output(PINARDUINO, 1)
                 
     finally:
         # Clean up the connection
