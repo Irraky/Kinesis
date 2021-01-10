@@ -97,9 +97,17 @@ As you can see, we connected three jumpers on:
 Here is it pinout:
 ![Pinout-converter](https://github.com/Irraky/Kinesis/blob/master/Readme_pictures/pinout_convertisseur.png)  
 We have to correctly connect the jumpers we put on the Raspberry and the Arduino to those indicated on the converter.  
-
-#### Mobile application
+  
 The Arduino and Raspberry part is ready, we can connect our Raspberry to the current.  
 The Arduino is already connected to the computer and the Raspberry since the last step so everything is set up there.
-
-
+  
+#### Mobile application
+We now need to prepare the application.
+1. For that we have to open [Android Studio](https://developer.android.com/studio)
+2. Open the project [kinesis](https://github.com/Irraky/Kinesis/tree/master/Kinesis%5Bmobile_application%5D) 
+It's the folder `Kinesis[mobile_application` of the project.   
+3. The phone needs to pass in developer mode. The procedure depends on the OS. 
+In my case, I had to tap 7 times on *About this phone* in the parameters.
+4. The phone needs to be connected to the computer.  
+5. You will have a pop-up on the phone about USB debug. You can accept or not. It's not important if you don't want to change the project.  
+If you want to add your improvements to the project, accept to be able to debug on the console of android studio.
