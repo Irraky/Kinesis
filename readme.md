@@ -25,8 +25,8 @@ This project is separated in two parts:
 To create the prototype, we needed some material:
 * Arduino Pro Micro 5V
 * Raspberry Pi 3
-* Voltage converter
-* A phone
+* [Voltage converter](https://www.amazon.fr/gp/product/B07RY15XMJ/ref=ppx_yo_dt_b_asin_title_o01_s00?ie=UTF8&psc=1)
+* A phone under android (Version 10 is the minimum requirement)
 
 ## Technologies
 ***
@@ -122,7 +122,7 @@ As you can see, we connected three jumpers on:
 * 5V
 * pin 2  
 8. The problem is that the arduino we use needs 5V, so we use a converter that link the raspeberry to the arduino.  
-Here is it pinout:
+Here is it pinout:  
 ![Pinout-converter](https://github.com/Irraky/Kinesis/blob/master/Readme_pictures/pinout_convertisseur.png)  
 We have to correctly connect the jumpers we put on the Raspberry and the Arduino to those indicated on the converter.  
   
@@ -151,19 +151,22 @@ If you want to add your improvements to the project, accept to be able to debug 
 ## Test
 ***
 If you have done all the previous steps, you can test the app.  
-* Put your computer in sleep mode.
-* Open the application (if it's not already done)
-* Say "allumer ordinateur"
+* Put your computer in sleep mode.  
+* Open the application (if it's not already done)  
+* Say "allumer ordinateur"  
 The list of computers will appear.  
-* Say "numéro un"
-The first one in the list will be chosen. (For the moment the code hasn't the feature to wake up more than one computer.)
-* Look at your screen, it should turn on.
-We tried this project on a Surface Book 3 so we have a huge advantage: the computer is unlocked through face recognition.
+* Say "numéro un"  
+The first one in the list will be chosen. (For the moment the code hasn't the feature to wake up more than one computer.)  
+* Look at your screen, it should turn on.  
+We tried this project on a Surface Book 3 so we have a huge advantage: the computer is unlocked through face recognition.  
 
 ## FAQs
-1. **Who made this project ?**
+1. **Who made this project ?**  
 This project was made by a team of five students from the school Efrei Paris.  
-It's a project where student are free to do what they want on the topic *The numeric to the benefit of society*.
-2. **Why this project ?**
+It's a project where student are free to do what they want on the topic *The numeric to the benefit of society*.  
+2. **Why this project ?**  
 There is today 12 millions people in situation of handicap in France. We found that this project was a great opportunity to develop something to help them.
-  
+3. **What is the future of this project ?**
+First of all, we need to launch the script to move the mouse when the computer is turn on.  
+Then, we plan to add the option to wake several computers (which will be connected to the same Raspberry).  
+Eventually, we will just remove the mobile application and add a microphone to the Raspberry. This will lighter the project and just keep the necessery elements.
