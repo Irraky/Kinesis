@@ -44,7 +44,7 @@ You also will need speech_recognition:
 pip install SpeechRecognition
 ```  
   
-Eventually, install ![PyAudio](https://stackoverflow.com/questions/61348555/error-pyaudio-0-2-11-cp38-cp38-win-amd64-whl-is-not-a-supported-wheel-on-this-p).
+Eventually, install [PyAudio](https://stackoverflow.com/questions/61348555/error-pyaudio-0-2-11-cp38-cp38-win-amd64-whl-is-not-a-supported-wheel-on-this-p).
 
 You are now able to launch *nose track.py* in *Nose_and_voice_control[ordinateur]*  
 ```diff
@@ -68,8 +68,9 @@ To set up the Raspberry, we also needed to connect it to the screen, after the s
 ``` shell
 sudo python /home/pi/kinesisServerRaspi.py
 ```  
-This will launch the script when the raspberry is turned on.  
-5.
+This will launch the script when the raspberry is turned on. 
+5. You can now shut down by disconnecting the cable which provides current to the Raspberry and deconnect the Raspberry from the screen. 
+6.
 Here is the pinout of our Rasberry :  
 ![Pinout-Raspberry](https://github.com/Irraky/Kinesis/blob/master/Readme_pictures/installation_os_rasp.png)  
 As you can see, we need to connect three jumpers on:
