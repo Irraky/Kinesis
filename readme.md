@@ -30,16 +30,21 @@ https://www.learnopencv.com/install-dlib-on-windows/
 ```  
 
 Then numpy :  
-`pip install numpy`  
+``` shell
+pip install numpy
+```  
   
 And pyautogui :  
-`pip install pyautogui`  
+``` shell
+pip install pyautogui
+``` 
   
 You also will need speech_recognition:  
-`pip install SpeechRecognition`  
+``` shell
+pip install SpeechRecognition
+```  
   
-Eventually, install PyAudio :  
-`https://stackoverflow.com/questions/61348555/error-pyaudio-0-2-11-cp38-cp38-win-amd64-whl-is-not-a-supported-wheel-on-this-p`  
+Eventually, install ![PyAudio](https://stackoverflow.com/questions/61348555/error-pyaudio-0-2-11-cp38-cp38-win-amd64-whl-is-not-a-supported-wheel-on-this-p).
 
 You are now able to launch *nose track.py* in *Nose_and_voice_control[ordinateur]*  
 ```diff
