@@ -36,9 +36,7 @@ Eventually, install PyAudio :
 `https://stackoverflow.com/questions/61348555/error-pyaudio-0-2-11-cp38-cp38-win-amd64-whl-is-not-a-supported-wheel-on-this-p`  
 
 You are now able to launch *nose track.py* in *Nose_and_voice_control[ordinateur]*  
-```diff 
-- For the moment, the script doesn't launch itself when the computer wake up.
-```  
+color:red For the moment, the script doesn't launch itself when the computer wake up. 
   
 ### Wake up the computer
 ![SchemaWakeUp](https://github.com/Irraky/Kinesis/blob/master/Readme_pictures/schema_project.png)
