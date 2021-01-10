@@ -20,10 +20,14 @@ The project is not usable when downloaded. It needs to be set up.
   
 ### Control with nose and voice
 Install opencv2:  
-`pip install opencv-python` 
+``` shell
+pip install opencv-python
+```  
    
 Install dlib:
-`https://www.learnopencv.com/install-dlib-on-windows/`  
+``` shell
+https://www.learnopencv.com/install-dlib-on-windows/
+```  
 
 Then numpy :  
 `pip install numpy`  
