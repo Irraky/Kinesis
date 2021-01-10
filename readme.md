@@ -1,7 +1,16 @@
 # Kinesis
 Project to help people with severe mobility impairment to control their computer.  
 The computer can be waken up when sleeping with the voice through a mobile application.  
-The user can control the mouse with his nose, and the keyboard and the click with his voice.  
+The user can control the mouse with his nose, and the keyboard and the click with his voice. 
+  
+## Table of content 
+1. [Overview](#overview)
+2. [Equipment used](#equipment-used)
+3. [Set up the project](#setup-the-project)
+4. [Set up the controll through the nose and the voice](#control-with-nose-and-voice)
+4. [Set up the wake up](#wake-up-the-computer)
+4. [Test](#test)
+
 ## Overview
 This project is separated in two parts:  
 * Wake up the computer
@@ -63,15 +72,21 @@ Here are the step to set up the Raspberry:
 
 2. You will need to connect the raspberry with an ethernet cable.  
 To set up the Raspberry, we also needed to connect it to the screen, after the set up, the screen is not needed anymore.  
-3. Download the script ![kinesisServerRaspi.py](https://github.com/Irraky/Kinesis/blob/master/Server%5Braspberry%5D/kinesisServerRaspi.py) and put it in `/home/pi`  
+3. Download the script [kinesisServerRaspi.py](https://github.com/Irraky/Kinesis/blob/master/Server%5Braspberry%5D/kinesisServerRaspi.py) and put it in `/home/pi`  
 You can find it on the folder `Server[raspberry]`  
-4. Open the file `etc/rc.local` (you can do that with vim which is already installed) and add the following line at the end of the file:  
+4. Connect your phone to this wi-fi (you know your password from last step)
+5. Open the file `etc/rc.local` (you can do that with vim which is already installed) and add the following line at the end of the file:  
 ``` shell
 sudo python /home/pi/kinesisServerRaspi.py
 ```  
+6. Take note for later of the ip address of your raspberry. For that, open a console and enter:
+```shell
+ifconfig
+```
+Check the block of *wlan0*. The ip address is the *inet address*.
 This will launch the script when the raspberry is turned on. 
-5. You can now shut down by disconnecting the cable which provides current to the Raspberry and deconnect the Raspberry from the screen. 
-6.
+7. You can now shut down by disconnecting the cable which provides current to the Raspberry and deconnect the Raspberry from the screen. 
+8.
 Here is the pinout of our Rasberry :  
 ![Pinout-Raspberry](https://github.com/Irraky/Kinesis/blob/master/Readme_pictures/installation_os_rasp.png)  
 As you can see, we need to connect three jumpers on:
@@ -104,10 +119,19 @@ The Arduino is already connected to the computer and the Raspberry since the las
 #### Mobile application
 We now need to prepare the application.
 1. For that we have to open [Android Studio](https://developer.android.com/studio)
-2. Open the project [kinesis](https://github.com/Irraky/Kinesis/tree/master/Kinesis%5Bmobile_application%5D) 
-It's the folder `Kinesis[mobile_application` of the project.   
+2. Open the project [kinesis](https://github.com/Irraky/Kinesis/tree/master/Kinesis%5Bmobile_application%5D) with android studio `open an existing project`.  
+It's the folder `Kinesis[mobile_application]` of this repository.   
+3. Open the file `Kinesis[mobile_application]/app/src/main/java/org/kaldi/demo/KaldiActivity.java`  
+4. On line 340, change the calue of ipStr by the value of the ip of the Raspberry. (You had it from step 6 of Set up Raspberry)  
+```java
+wake("10.3.141.1");
+```
 3. The phone needs to pass in developer mode. The procedure depends on the OS. 
 In my case, I had to tap 7 times on *About this phone* in the parameters.
 4. The phone needs to be connected to the computer.  
 5. You will have a pop-up on the phone about USB debug. You can accept or not. It's not important if you don't want to change the project.  
-If you want to add your improvements to the project, accept to be able to debug on the console of android studio.
+If you want to add your improvements to the project, accept to be able to debug on the console of android studio.  
+6. On Android Studio, select your phone as the devices to use
+7. Run the project  
+8. Once the project is launched, you can disconnect the phone from the computer if you don't want to debug: the application is now in it.  
+
