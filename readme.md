@@ -1,30 +1,43 @@
 # Kinesis
 Project to help people with severe mobility impairment to control their computer.  
-The computer can be waken up when sleeping with the voice through a mobile application.  
-The user can control the mouse with his nose, and the keyboard and the click with his voice. 
+ 
   
 ## Table of content 
-1. [Overview](#overview)
+1. [General Info](#overview)
 2. [Equipment used](#equipment-used)
-3. [Set up the project](#setup-the-project)
-4. [Set up the controll through the nose and the voice](#control-with-nose-and-voice)
-4. [Set up the wake up](#wake-up-the-computer)
-4. [Test](#test)
+3. [Technologies](#Technologies)
+4. [Set up the project](#setup-the-project)
+5. [Set up the controll through the nose and the voice](#control-with-nose-and-voice)
+6. [Set up the wake up](#wake-up-the-computer)
+7. [Test](#test)
+8. [FAQs](#faqs)
 
-## Overview
+## General Info
+***
+The computer can be waken up when sleeping with the voice through a mobile application.  
+The user can control the mouse with his nose, and the keyboard and the click with his voice.
 This project is separated in two parts:  
 * Wake up the computer
 * Control the mouse and the keyboard through the voice and nose movements 
 
 ## Equipment used
+***
 To create the prototype, we needed some material:
 * Arduino Pro Micro 5V
 * Raspberry Pi 3
 * Voltage converter
 * A phone
+
+## Technologies
+***
+* [IDE Arduino](https://www.arduino.cc/en/software): Version 1.8.13
+* [Android Studio](https://developer.android.com/studio): Version 4.1.1
+* [Raspberry Pi Imager](https://github.com/Irraky/Kinesis/blob/master/Readme_pictures/pinout_rasp.png): Version 1.5
   
 You can find in this repository the folders with the code for each element  
+  
 ## Setup the project
+***
 The project is not usable when downloaded. It needs to be set up.  
   
 ### Control with nose and voice
@@ -122,7 +135,7 @@ We now need to prepare the application.
 2. Open the project [kinesis](https://github.com/Irraky/Kinesis/tree/master/Kinesis%5Bmobile_application%5D) with android studio `open an existing project`.  
 It's the folder `Kinesis[mobile_application]` of this repository.   
 3. Open the file `Kinesis[mobile_application]/app/src/main/java/org/kaldi/demo/KaldiActivity.java`  
-4. On line 340, change the calue of ipStr by the value of the ip of the Raspberry. (You had it from step 6 of Set up Raspberry)  
+4. On line 340, change the value of ipStr by the value of the ip of the Raspberry. (You had it from step 6 of set up Raspberry)  
 ```java
 wake("10.3.141.1");
 ```
@@ -135,3 +148,22 @@ If you want to add your improvements to the project, accept to be able to debug 
 7. Run the project  
 8. Once the project is launched, you can disconnect the phone from the computer if you don't want to debug: the application is now in it.  
 
+## Test
+***
+If you have done all the previous steps, you can test the app.  
+* Put your computer in sleep mode.
+* Open the application (if it's not already done)
+* Say "allumer ordinateur"
+The list of computers will appear.  
+* Say "numéro un"
+The first one in the list will be chosen. (For the moment the code hasn't the feature to wake up more than one computer.)
+* Look at your screen, it should turn on.
+We tried this project on a Surface Book 3 so we have a huge advantage: the computer is unlocked through face recognition.
+
+## FAQs
+1. **Who made this project ?**
+This project was made by a team of five students from the school Efrei Paris.  
+It's a project where student are free to do what they want on the topic *The numeric to the benefit of society*.
+2. **Why this project ?**
+There is today 12 millions people in situation of handicap in France. We found that this project was a great opportunity to develop something to help them.
+  
